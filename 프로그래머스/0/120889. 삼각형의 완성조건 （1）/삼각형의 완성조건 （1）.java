@@ -22,4 +22,5 @@ class Solution {
         } else { answer = 2; }
         return answer;
     }
+    // sort() 사용해서 풀면 간단한 문제
 }
