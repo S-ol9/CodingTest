@@ -12,6 +12,7 @@ class Solution {
                 answer = hp / 5 + (hp % 5) / 1;
             }
         }
+        // answer = (hp/5) + ((hp%5) / 3) + ((hp%5) % 3); 한 줄로 끝낼 수 있음
         return answer;
     }
 }
