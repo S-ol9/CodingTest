@@ -11,16 +11,7 @@ public class Main {
         int w = Integer.parseInt(st.nextToken());
         int h = Integer.parseInt(st.nextToken());
 
-        int answer = x;
-        if (y < answer) {
-            answer = y;
-        }
-        if (w - x < answer) {
-            answer = w - x;
-        }
-        if (h - y < answer) {
-            answer = h - y;
-        }
+        int answer = Math.min(Math.min(x, w - x), Math.min(y, h - y));
         System.out.println(answer);
     }
 }
