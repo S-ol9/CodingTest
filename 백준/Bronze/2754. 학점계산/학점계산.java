@@ -1,48 +1,36 @@
-import java.util.Scanner;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String string = sc.nextLine();
-        double A = 4.0;
-        double B = 3.0;
-        double C = 2.0;
-        double D = 1.0;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        String string = br.readLine();
+        double answer = 0.0;
 
-        if (string.charAt(0) == 'A') {
-            if (string.charAt(1) == '+') {
-                A += 0.3;
-            } else if (string.charAt(1) == '-') {
-                A -= 0.3;
+        char s0 = string.charAt(0);
+
+        if (s0 == 'A') {
+            answer = 4.0;
+        } else if (s0 == 'B') {
+            answer = 3.0;
+        } else if (s0 == 'C') {
+            answer = 2.0;
+        } else if (s0 == 'D') {
+            answer = 1.0;
+        } else if (s0 == 'F') {
+            answer = 0.0;
+        }
+        if (string.length() == 2) {
+            char s1 = string.charAt(1);
+            if (s1 == '+') {
+                answer += 0.3;
+            } else if (s1 == '-') {
+                answer -= 0.3;
             }
-            System.out.println(A);
         }
-        if (string.charAt(0) == 'B') {
-            if (string.charAt(1) == '+') {
-                B += 0.3;
-            } else if (string.charAt(1) == '-') {
-                B -= 0.3;
-            }
-            System.out.println(B);
-        }
-        if (string.charAt(0) == 'C') {
-            if (string.charAt(1) == '+') {
-                C += 0.3;
-            } else if (string.charAt(1) == '-') {
-                C -= 0.3;
-            }
-            System.out.println(C);
-        }
-        if (string.charAt(0) == 'D') {
-            if (string.charAt(1) == '+') {
-                D += 0.3;
-            } else if (string.charAt(1) == '-') {
-                D -= 0.3;
-            }
-            System.out.println(D);
-        }
-        if (string.charAt(0) == 'F') {
-            System.out.println("0.0");
-        }
+        
+        bw.write(answer + "\n");
+        bw.flush();
+        bw.close();
     }
 }
