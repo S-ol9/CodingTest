@@ -11,7 +11,6 @@ public class Main {
         for(int i = 0; i < N; i++) {
             count = 0;
             sum = 0;
-            ArrayList<String> st = new ArrayList<>();
             test = sc.next();
             for(int j = 0; j<test.length(); j++) {
                 if(test.charAt(j) =='O') {
