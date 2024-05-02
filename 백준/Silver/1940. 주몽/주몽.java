@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -11,15 +12,20 @@ public class Main {
         for (int i = 0; i < N; i++) {
             arr[i] = sc.nextInt();
         }
-
+        Arrays.sort(arr);
+        int i = 0;
+        int j = N - 1;
         int count = 0;
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] + arr[j] == M) {
-                    count++;
-                }
+        while (i < j) {
+            if (arr[i] + arr[j] < M) {
+                i++;
+            } else if (arr[i] + arr[j] > M) {
+                j--;
+            } else if (arr[i] + arr[j] == M) {
+                count++;
+                i++;
+                j--;
             }
-
         }
 
         System.out.println(count);
