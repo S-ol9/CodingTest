@@ -21,17 +21,23 @@ public class Main {
 
         List<String> list = new ArrayList<>(map.keySet()); // 리스트에 단어 넣기
 
-        list.sort((o1, o2) -> {
-            int num1 = map.get(o1);
-            int num2 = map.get(o2);
+        Collections.sort(list, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                // 등장 횟수
+                if (Integer.compare(map.get(o1), map.get(o2)) != 0) {
+                    return Integer.compare(map.get(o2), map.get(o1));
+                } // 내림차순
 
-            if (num1 == num2) {
-                if (o1.length() == o2.length()) {
-                    return o1.compareTo(o2); // 알파벳 순
-                }
-                return o2.length() - o1.length(); // 단어가 길수록 앞
+                // 등장 횟수가 같을 경우 길이가 긴 단어
+                if (o1.length() != o2.length()) {
+                    return o2.length() - o1.length();
+                } // 내림차순
+
+                // 등장 횟수가 같을 경우 사전 순
+                return o1.compareTo(o2);
+                // 오름차순
             }
-            return num2 - num1; // 빈도 수 높은 단어 앞
         });
 
         for (String i : list) {
